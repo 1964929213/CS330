@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "model": "uv = T * [x, z, 1]",
+  "matrix_2x3": [
+    [
+      320.39571032841945,
+      -89.4666939255072,
+      1481.4122171637948
+    ],
+    [
+      -142.42551348636528,
+      -310.29257554739297,
+      1777.3286416456601
+    ]
+  ],
+  "stats": {
+    "num_correspondences": 31,
+    "mean_error_px": 48.700993862552174,
+    "median_error_px": 43.48796894177091,
+    "rmse_px": 56.79023338596584,
+    "max_error_px": 116.9922421256756
+  },
+  "sources": {
+    "pose_csv": "localization/baseline_0416_1/reference_db/image_pose_table.csv",
+    "floorplan": "navigation/baseline_0416_1/floorplan.jpg"
+  }
+}
