@@ -1,0 +1,52 @@
+{
+  "package": {
+    "name": "ALIKED Indoor Localization Handoff",
+    "slug": "localization_handoff_20260506",
+    "version": "2026.05.06",
+    "description": "0416 ALIKED baseline plus 20260506 919-image reference set for navigation/web integration."
+  },
+  "data": {
+    "reference_set": {
+      "name": "aliked_reference_set_20260506_919",
+      "root": "data/reference_sets/aliked_reference_set_20260506_919",
+      "reference_images": "data/reference_sets/aliked_reference_set_20260506_919/reference_images",
+      "reference_db": "data/reference_sets/aliked_reference_set_20260506_919/reference_db",
+      "db_global_feats": "data/reference_sets/aliked_reference_set_20260506_919/reference_db/global-feats-netvlad.h5",
+      "db_local_feats": "data/reference_sets/aliked_reference_set_20260506_919/reference_db/feats-aliked-n16.h5",
+      "topometric": "data/reference_sets/aliked_reference_set_20260506_919/topometric",
+      "ref_points_2d": "data/reference_sets/aliked_reference_set_20260506_919/topometric/reference_points_2d.csv",
+      "transform_json": "data/reference_sets/aliked_reference_set_20260506_919/topometric/transform.json",
+      "expected_image_count": 919
+    },
+    "baseline": {
+      "name": "aliked_baseline_20260416",
+      "root": "data/baselines/aliked_baseline_20260416",
+      "triangulated_model": "data/baselines/aliked_baseline_20260416/triangulated_model"
+    },
+    "floorplan": {
+      "path": "data/floorplans/corridor_floorplan_0410.jpg"
+    }
+  },
+  "runtime": {
+    "host": "0.0.0.0",
+    "port": 8034,
+    "static_dir": "static",
+    "tmp_dir": "runtime/tmp_queries",
+    "work_dir": "runtime/localization_runs",
+    "max_post_bytes": 26214400,
+    "k_init": 20,
+    "k_max": 60,
+    "k_step": 20,
+    "min_match_high": 75,
+    "min_match_fallback": 30,
+    "ransac_thresh": 12.0,
+    "min_pnp_inliers": 20,
+    "query_resize_max": 1280
+  },
+  "contracts": {
+    "retrieval_membership": "All reference image names are read from the NetVLAD H5 keys, including topometric-only images.",
+    "position": "Final x/y is the weighted topometric position.",
+    "heading": "PnP is used for heading and diagnostics only.",
+    "concurrency": "Only one /api/localize request runs at a time."
+  }
+}
